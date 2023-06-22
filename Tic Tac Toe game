@@ -1,0 +1,81 @@
+
+## Description: This program simulates a two player game of tic tac toe
+
+import TicTacToeHelper
+
+## tic tac toe solver tells current state of game
+## print board function displays tic tac toe board
+
+def isValidMove(boardList, spot):
+
+## spot is 0-8 inclusive
+## check if it's equal to x or o, returns true if not equal to either
+
+  if spot >= 0 and spot <= 8 and boardList[spot] != "x" and boardList[spot] != "o": 
+  return True
+  else:
+  return False
+  
+def updateBoard(boardList, spot, playerLetter): 
+## updates the board with an x or o
+  boardList[spot] = playerLetter
+  
+## this allows each player to take a turn until the game ends 
+def playGame():
+  board = ["0", "1", "2", "3", "4", "5", "6", "7", "8"]
+  
+# counts the number of moves 
+  moveCounter = 0
+# plays until there is a winner 
+  checkforWinner = "n"
+  TicTacToeHelper.printUglyBoard(board)
+  while checkforWinner == "n": 
+   check = False
+# modulus returns 0 or 1, assigns that to x or o
+
+# 1 is assigned to x, takes player input and marks the position with an x 
+  if moveCounter % 2 == 1:
+  check = False
+  while check == False:
+    spot = int(input("Player x, pick a spot: "))
+    check = isValidMove(board,spot) 
+  updateBoard(board,spot,"x")
+  
+  moveCounter = moveCounter + 1 
+  TicTacToeHelper.printUglyBoard(board)
+  if TicTacToeHelper.checkForWinner(board,moveCounter) != "n":
+  
+  break
+  
+# 0 is assigned to o, takes player input and marks the position with an 0
+
+  if moveCounter % 2 == 0:
+  spot = int(input("Player o, pick a spot: ")) 
+  check = isValidMove(board, spot)
+  
+  updateBoard(board, spot, "o") 
+  moveCounter = moveCounter + 1 
+  TicTacToeHelper.printUglyBoard(board)
+  
+  if TicTacToeHelper.checkForWinner(board, moveCounter) != "n": 
+    break
+
+ checkforWinner = TicTacToeHelper.checkForWinner(board,moveCounter) 
+ print("Game Over!")
+ 
+## determines who wins or if it's a stalemate 
+  if checkforWinner == "s":
+  print("Stalemate reached!") 
+  elif checkforWinner == "o": 
+  print("Player o is the winner!") 
+  elif checkforWinner == "x": 
+  print("Player x is the winner!")
+  
+## uses a do while loop to allow user to play a game of Tic Tac Toe, can play multiple rounds if selects 'y'
+
+def main():
+  print("Welcome to Tic Tac Toe!") playerChoice = "y"
+  while playerChoice == "y": playGame()
+  choice = input("Would you like to play another round? (y or n): ") choice = choice.lower()
+  print("Goodbye!")
+main()
