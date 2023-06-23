@@ -1,7 +1,4 @@
-# Chelsea Pelchat, pelchat@usc.edu
-# ITP 115, Fall 2021
-# Section 32023
-# Assignment 6
+
 # Description: program displays a jumbled word to the user
 # have the user guess the word until it's correct
 # after the user correctly enters the word,
