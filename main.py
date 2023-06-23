@@ -1,7 +1,4 @@
-# Chelsea Pelchat, pelchat@usc.edu
-# ITP 115, Fall 2021
-# Section 32023
-# Assignment 7
+
 # Description: this program allows the user to play rock-paper-scissors against the computer
 # randomly chooses an integer from 0 to 2 inclusive
 # 0 for rock, 1 for paper, and 2 for scissors
