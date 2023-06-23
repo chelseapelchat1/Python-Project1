@@ -1,7 +1,4 @@
-# Chelsea Pelchat, pelchat@usc.edu
-# ITP 115, Fall 2021
-# Section 32023
-# Assignment 9
+
 # Description: this program translates words to different languages
 
 def getLanguages(fileName = "languages.csv"):
